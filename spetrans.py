@@ -1,7 +1,7 @@
 '''
 Author: chentx
 Date: 2024-05-06 14:58:06
-LastEditTime: 2024-05-06 16:57:43
+LastEditTime: 2024-05-07 10:35:05
 LastEditors: chentx
 Description:
 '''
@@ -12,10 +12,13 @@ from openai import OpenAI
 
 
 class Spetrans:
-    def __init__(self):
-        self.api_key = None
-        self.base_url = None
+    def __init__(self, api_key=None, base_url=None):
+        self.api_key = api_key
+        self.base_url = base_url
         self.client = None
+
+        if api_key and base_url:
+            self.initialize_client()
 
     def set_api_key(self, api_key):
         self.api_key = api_key
